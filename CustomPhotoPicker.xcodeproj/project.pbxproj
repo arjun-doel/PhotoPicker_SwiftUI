@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		72D95BA92A0AD24F0053A9A0 /* CustomPhotoPickerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72D95BA82A0AD24F0053A9A0 /* CustomPhotoPickerApp.swift */; };
-		72D95BAB2A0AD24F0053A9A0 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72D95BAA2A0AD24F0053A9A0 /* ContentView.swift */; };
+		72D95BAB2A0AD24F0053A9A0 /* CustomPhotoPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72D95BAA2A0AD24F0053A9A0 /* CustomPhotoPicker.swift */; };
 		72D95BAD2A0AD2500053A9A0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 72D95BAC2A0AD2500053A9A0 /* Assets.xcassets */; };
 		72D95BB02A0AD2500053A9A0 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 72D95BAF2A0AD2500053A9A0 /* Preview Assets.xcassets */; };
 		72D95BBA2A0AD2500053A9A0 /* CustomPhotoPickerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72D95BB92A0AD2500053A9A0 /* CustomPhotoPickerTests.swift */; };
@@ -36,7 +36,7 @@
 /* Begin PBXFileReference section */
 		72D95BA52A0AD24F0053A9A0 /* CustomPhotoPicker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CustomPhotoPicker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		72D95BA82A0AD24F0053A9A0 /* CustomPhotoPickerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomPhotoPickerApp.swift; sourceTree = "<group>"; };
-		72D95BAA2A0AD24F0053A9A0 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		72D95BAA2A0AD24F0053A9A0 /* CustomPhotoPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomPhotoPicker.swift; sourceTree = "<group>"; };
 		72D95BAC2A0AD2500053A9A0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		72D95BAF2A0AD2500053A9A0 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		72D95BB52A0AD2500053A9A0 /* CustomPhotoPickerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CustomPhotoPickerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -95,7 +95,7 @@
 			isa = PBXGroup;
 			children = (
 				72D95BA82A0AD24F0053A9A0 /* CustomPhotoPickerApp.swift */,
-				72D95BAA2A0AD24F0053A9A0 /* ContentView.swift */,
+				72D95BAA2A0AD24F0053A9A0 /* CustomPhotoPicker.swift */,
 				72D95BAC2A0AD2500053A9A0 /* Assets.xcassets */,
 				72D95BAE2A0AD2500053A9A0 /* Preview Content */,
 			);
@@ -257,7 +257,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				72D95BAB2A0AD24F0053A9A0 /* ContentView.swift in Sources */,
+				72D95BAB2A0AD24F0053A9A0 /* CustomPhotoPicker.swift in Sources */,
 				72D95BA92A0AD24F0053A9A0 /* CustomPhotoPickerApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

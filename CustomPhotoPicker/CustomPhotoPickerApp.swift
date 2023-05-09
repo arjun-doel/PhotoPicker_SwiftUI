@@ -11,7 +11,7 @@ import SwiftUI
 struct CustomPhotoPickerApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+//            PhotoPickerComp(data: ., selectedImage: <#T##Binding<UIImage?>#>, width: <#T##CGFloat#>, height: <#T##CGFloat#>)
         }
     }
 }
