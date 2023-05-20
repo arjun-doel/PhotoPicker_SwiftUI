@@ -1,22 +1,22 @@
 //
-//  ContentView.swift
-//  CustomPhotoPicker
+//  PhotoPickerComp.swift
+//  MealMatch_Client_iOS
 //
-//  Created by Arjun Doel on 09/05/2023.
+//  Created by Arjun Doel on 08/05/2023.
 //
-
-import SwiftUI
 
 import SwiftUI
 import PhotosUI
 
 struct PhotoPickerComp: View {
-    @Binding var data: PhotosPickerItem?
     @Binding var selectedImage: UIImage?
+    @State var data: PhotosPickerItem?
     @State private var animateDelete = false
     
     var width: CGFloat
     var height: CGFloat
+    
+    var onError: (String) -> ()
     
     
     var body: some View {
@@ -34,18 +34,27 @@ struct PhotoPickerComp: View {
                 }
                 .frame(width: width, height: height)
                 .mask(RoundedRectangle(cornerRadius: 20))
-                .shadow(radius: 1)
+                .shadow(radius: 0.6)
                 
                 deleteButton
                     .offset(x: 10, y: -10)
             }
         }
+        .onChange(of: data) { _ in
+            Task {
+                await handleImageSelect()
+            }
+        }
     }
     
     var imagePlaceholder: some View {
-        VStack {}
-            .frame(width: width, height: height)
-            .background(.thickMaterial)
+        VStack(alignment: .center) {
+            Image(systemName: "camera.fill")
+                .font(.title)
+                .foregroundColor(.gray)
+        }
+        .frame(width: width, height: height)
+        .background(.thickMaterial)
     }
     
     var deleteButton: some View {
@@ -54,11 +63,12 @@ struct PhotoPickerComp: View {
                 VStack {
                     
                 }
-                .frame(width: 50, height: 50)
+                .frame(width: 40, height: 40)
                 .background(.red)
                 .mask(Circle())
                 
-                Image(systemName: "trash.slash.fill")
+                Image(systemName: "multiply")
+                    .fontWeight(.bold)
                     .tint(.white)
                 
             }
@@ -73,10 +83,9 @@ struct PhotoPickerComp: View {
 
 struct PhotoPickerComp_Previews: PreviewProvider {
     static var previews: some View {
-        PhotoPickerComp(data: .constant(nil),
-                        selectedImage: .constant(nil),
-                        width: 200, height: 500
-        )
+        PhotoPickerComp(selectedImage: .constant(nil), width: 200, height: 500) { message in
+            print(message)
+        }
     }
 }
 
@@ -91,4 +100,19 @@ extension PhotoPickerComp {
             }
         }
     }
+    
+    @MainActor
+    private func handleImageSelect() async {
+        if let data = try? await self.data?.loadTransferable(type: Data.self) {
+            if let uiImage = UIImage(data: data) {
+                self.selectedImage = uiImage
+                return
+            }
+        } else {
+            onError("Could not load image")
+        }
+        
+        print("Failed")
+    }
 }
+
